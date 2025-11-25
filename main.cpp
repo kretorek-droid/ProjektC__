@@ -1,0 +1,166 @@
+#include <complex.h>
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool czyParzysta(int a) {
+  if (a % 2 == 0) {
+    return true;
+  }else {
+      return false;
+  }
+}
+
+
+int wartoscMax(int a, int b, int c){
+  int max = a;
+    if (b>max) {
+      max = b;
+    }
+    if (c>max) {
+      max = c;
+    }
+  return max;
+}
+
+
+
+int tablicaMax(int tab[], int n) {
+  int max = tab[0];
+  for(int i=1; i<n; i++) {
+   if (tab[i]>max) {
+     max = tab[i];
+   }
+  }
+
+  return max;
+}
+
+
+
+int kwadrat(int a){
+  return a*a;
+}
+
+void kwadrat1(int a){
+  cout << a*a << endl;
+}
+
+void odliczanie(int a){
+  for (int i = a; i >= 0; i--){
+    cout << "pozostało czasu: "<< i << endl;
+  }
+}
+
+bool pelnoletni(int a){
+  if (a >= 18) {
+    return true;
+  }else{
+    return false;
+  }
+}
+
+int sumaTrzech(int a, int b, int c){
+  return a+b+c;
+}
+
+int minutyNaSekundy(int minuty){
+  return minuty*60;
+}
+
+string imieZawod(string imie, string zawod){
+  return imie + " to " + zawod;
+}
+
+int wieksza(int a, int b){
+  if(a > b){
+    return a;
+  }else {
+    return b;
+  }
+}
+
+void genKreski(int a){
+  for(int i = 0; i < a; i++)
+   cout << '-';
+}
+
+void genGwiazdek(int szerokosc, int wysokosc){
+  for(int i = 0; i < wysokosc; i++){
+    for(int j = 0; j < szerokosc; j++){
+      cout << "*";
+    }
+    cout << endl;
+  }
+}
+
+void genGwiazdekKw(int bok){
+  for(int i = 0; i < bok; i++){
+    for(int j = 0; j < bok; j++){
+      cout << "*";
+    }
+    cout << endl;
+  }
+}
+
+void schodki(int wymiar){
+  for(int i = 0; i < wymiar; i++){
+    cout << endl;
+    for(int j = i; j < wymiar; j++){
+       cout << "*";
+    }
+    //...
+  }
+}
+
+int poleprostokota(int a, int b) {
+    return a * b;
+}
+
+
+
+int main () {
+
+  // odliczanie(8);
+  // bool prawda = true;
+
+  // if(prawda){
+  //   cout << "prawda" << endl;
+  // }
+
+
+  // if(pelnoletni(19)){
+  //   cout << "użytkownik pełnoletni" << endl;
+  // }else{
+  //   cout << "użytkownik niepełnoletni" << endl;
+  // }
+
+
+  cout <<"sumaTrzech to: " << sumaTrzech(2, 33, 4) << endl; //sumaTrzech to: 39 (NIE VOID)
+  cout <<"minutyNaSekundy to: " << minutyNaSekundy(6) << endl;
+  cout << imieZawod("Sebastian", "Programista") << endl;  // "Sebastian to Programista"
+  cout << wieksza(3, 5) << endl;  //5
+  schodki(4);
+
+
+
+  cout << poleprostokota(2, 3) << endl;
+
+
+  cout << czyParzysta(5) << endl;
+
+  cout << wartoscMax( 33, 1111, 55);
+
+
+
+  int mojaTablica[10] = { 23, 12, 4334, 1232, 45, 557, 7879, 12, 2 ,999};
+
+  cout<< "max w mojaTablica: "  << tablicaMax(mojaTablica, 10) << endl;
+
+
+  return 0;
+
+
+
+
+}
