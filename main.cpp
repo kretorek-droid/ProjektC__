@@ -3,74 +3,74 @@
 #include <string>
 using namespace std;
 
-bool czyParzysta(int a) {
-  if (a % 2 == 0) {
-    return true;
-  }else {
-      return false;
+class Samochod {
+private:
+  string marka;
+  int rocznik;
+  double spalanie_na100;
+  int pojemnosc_baku;
+  double licznik = 7.5;
+  double stan_baku = 5;
+
+public:
+
+  Samochod(string marka_k, int rocznik_k, double spalanie_na100_k, int pojemnosc_baku_k) {
+    cout << "Utworzylem obiekt typu Samochod" << endl;
+    marka = marka_k;
+    rocznik = rocznik_k;
+    spalanie_na100 = spalanie_na100_k;
+    pojemnosc_baku = pojemnosc_baku_k;
   }
-}
 
+  void podajDaneSamochodu(){
+    cout
+    << "marka: " << marka << endl
+    << "rocznik: " << rocznik << endl
+    << "spalanie na 100: " << spalanie_na100 << endl
+    << "pojemnosc baku: " << pojemnosc_baku << endl
+    << "na liczniku: " << licznik << endl
+    << "paliwa w baku: " << stan_baku << endl;
+  }
 
-int wartoscMax(int a, int b, int c){
-  int max = a;
-    if (b>max) {
-      max = b;
+  void tankowanie(double tankowane_paliwo) {
+    stan_baku += tankowane_paliwo;
+
+    if (stan_baku > pojemnosc_baku) {
+      stan_baku = pojemnosc_baku;
     }
-    if (c>max) {
-      max = c;
-    }
-  return max;
-}
+
+    cout << "Stan baku po zatankowaniu:" << stan_baku << endl;
+    cout << "Zatankowane paliwo:" << tankowane_paliwo << endl;
 
 
-
-int tablicaMax(int tab[], int n) {
-  int max = tab[0];
-  for(int i=1; i<n; i++) {
-   if (tab[i]>max) {
-     max = tab[i];
-   }
   }
 
-  return max;
-}
 
 
 
-int kwadrat(int a){
-  return a*a;
-}
 
-void kwadrat1(int a){
-  cout << a*a << endl;
-}
 
-void odliczanie(int a){
-  for (int i = a; i >= 0; i--){
-    cout << "pozostało czasu: "<< i << endl;
+
+
+  //-----------------------GET'ery i SEt'ery
+  void setMarka(string marka_s) {
+    marka = marka_s;
   }
-}
 
-bool pelnoletni(int a){
-  if (a >= 18) {
-    return true;
-  }else{
-    return false;
+  string getMarka() {
+    return marka;
   }
-}
 
-int sumaTrzech(int a, int b, int c){
-  return a+b+c;
-}
+  void setRocznik(int rocznik_s) {
+    rocznik = rocznik_s;
+  }
 
-int minutyNaSekundy(int minuty){
-  return minuty*60;
-}
+  int getRocznik() {
+    return rocznik;
+  }
 
-string imieZawod(string imie, string zawod){
-  return imie + " to " + zawod;
-}
+
+};
 
 int wieksza(int a, int b){
   if(a > b){
@@ -121,46 +121,11 @@ int poleprostokota(int a, int b) {
 
 int main () {
 
-  // odliczanie(8);
-  // bool prawda = true;
-
-  // if(prawda){
-  //   cout << "prawda" << endl;
-  // }
-
-
-  // if(pelnoletni(19)){
-  //   cout << "użytkownik pełnoletni" << endl;
-  // }else{
-  //   cout << "użytkownik niepełnoletni" << endl;
-  // }
-
-
-  cout <<"sumaTrzech to: " << sumaTrzech(2, 33, 4) << endl; //sumaTrzech to: 39 (NIE VOID)
-  cout <<"minutyNaSekundy to: " << minutyNaSekundy(6) << endl;
-  cout << imieZawod("Sebastian", "Programista") << endl;  // "Sebastian to Programista"
-  cout << wieksza(3, 5) << endl;  //5
-  schodki(4);
-
-
-
-  cout << poleprostokota(2, 3) << endl;
-
-
-  cout << czyParzysta(5) << endl;
-
-  cout << wartoscMax( 33, 1111, 55);
-
-
-
-  int mojaTablica[10] = { 23, 12, 4334, 1232, 45, 557, 7879, 12, 2 ,999};
-
-  cout<< "max w mojaTablica: "  << tablicaMax(mojaTablica, 10) << endl;
+  Samochod s1("BMW", 1995, 7.3, 40);
+  s1.podajDaneSamochodu();
 
 
   return 0;
-
-
-
-
 }
+
+// pOBIERZ  Z KLAWIATURY 3 NEIUJEMNE LOICBZY CAKOWEITE. ZNAJDŹ NAJWIĘKSZĄ Z NICH. WYŚWIETL SUMĘ PZOOSTAŁYCH LICZB TYLE RAZY ILE WYNOSI WARTOŚĆ NAJWIĘKSZEJ LICZBY
