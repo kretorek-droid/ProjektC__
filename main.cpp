@@ -1,4 +1,3 @@
-#include <complex.h>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -72,57 +71,17 @@ public:
 
 };
 
-int wieksza(int a, int b){
-  if(a > b){
-    return a;
-  }else {
-    return b;
-  }
-}
-
-void genKreski(int a){
-  for(int i = 0; i < a; i++)
-   cout << '-';
-}
-
-void genGwiazdek(int szerokosc, int wysokosc){
-  for(int i = 0; i < wysokosc; i++){
-    for(int j = 0; j < szerokosc; j++){
-      cout << "*";
-    }
-    cout << endl;
-  }
-}
-
-void genGwiazdekKw(int bok){
-  for(int i = 0; i < bok; i++){
-    for(int j = 0; j < bok; j++){
-      cout << "*";
-    }
-    cout << endl;
-  }
-}
-
-void schodki(int wymiar){
-  for(int i = 0; i < wymiar; i++){
-    cout << endl;
-    for(int j = i; j < wymiar; j++){
-       cout << "*";
-    }
-    //...
-  }
-}
-
-int poleprostokota(int a, int b) {
-    return a * b;
-}
-
 
 
 int main () {
 
   Samochod s1("BMW", 1995, 7.3, 40);
   s1.podajDaneSamochodu();
+
+  s1.tankowanie(50);
+
+
+
 
 
   return 0;
