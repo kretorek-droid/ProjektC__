@@ -32,19 +32,40 @@ public:
   }
 
   void tankowanie(double tankowane_paliwo) {
+    double bak_przed_tankowaniem = stan_baku;
     stan_baku += tankowane_paliwo;
 
     if (stan_baku > pojemnosc_baku) {
       stan_baku = pojemnosc_baku;
     }
-
     cout << "Stan baku po zatankowaniu:" << stan_baku << endl;
-    cout << "Zatankowane paliwo:" << tankowane_paliwo << endl;
-
+    cout << "Zatankowane paliwo:" << stan_baku - bak_przed_tankowaniem << endl;
 
   }
 
+  void jazda(double ilosc_km) {
+    if(stan_baku <= 0) {
+      cout << "Brak paliwa, nie pojedziesz" << endl;
+    }else {
+      double maksymalny_dystans = (stan_baku * 100)/spalanie_na100;
+      // cout << "maksymalny dystans: " << maksymalny_dystans;
 
+      if (ilosc_km >= maksymalny_dystans) {
+        licznik += maksymalny_dystans;
+        stan_baku = 0;
+        cout << "Samochod stanal, brak paliwa " << endl;
+        cout << "Przejechano tyle kilometrow " << maksymalny_dystans << endl;
+      } else {
+        licznik += ilosc_km;
+        stan_baku -= ilosc_km*spalanie_na100/100;
+
+        cout << "aktualny stan baku:" << stan_baku << endl;
+        cout << "Przejechano tyle kilometrow" << ilosc_km << endl;
+
+      }
+    }
+
+  }
 
 
 
@@ -76,13 +97,14 @@ public:
 int main () {
 
   Samochod s1("BMW", 1995, 7.3, 40);
-  s1.podajDaneSamochodu();
+  s1.tankowanie(15);
+  s1.jazda(330);
 
-  s1.tankowanie(50);
+  // s1.podajDaneSamochodu();
 
-
-
-
+  s1.jazda(11);
+  s1.tankowanie(30);
+  s1.jazda(300);
 
   return 0;
 }
