@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 class Samochod {
@@ -10,6 +12,10 @@ private:
   int pojemnosc_baku;
   double licznik = 7.5;
   double stan_baku = 5;
+
+  vector<string> karta_przegladu;
+
+
 
 public:
 
@@ -131,19 +137,37 @@ public:
   }
 };
 
+ int zwracanie(vector<int>& vect, int szukana_wartosc) {
+   for(int i = 0 ; i < vect.size() ; i++) {
+     if (vect[i] == szukana_wartosc) {
+       return i;
+     }
+   }
+ }
 
 
 int main () {
 
-  Samochod s1("BMW", 1995, 7.3, 40);
-  s1.tankowanie(15);
-  s1.jazda(330);
+  // Samochod s1("BMW", 1995, 7.3, 40);
+  // s1.dodajPrzeglad("1.12.2018");
+  // s1.tankowanie(15);
+  // s1.jazda(330);
+  //
+  // // s1.podajDaneSamochodu();
+  //
+  // s1.jazda(11);
+  // s1.tankowanie(30);
+  // s1.jazda(300);
+  //
+  // s1.dodajPrzeglad("3.12.2020");
+  //
+  // s1.wypiszWszystkiePrzeglady();
 
-  // s1.podajDaneSamochodu();
+  vector<int> liczby = {232,4545,4522,831,25,72,257,2311};
 
-  s1.jazda(11);
-  s1.tankowanie(30);
-  s1.jazda(300);
+
+   cout << zwracanie(liczby , 257);
+
 
   return 0;
 }
