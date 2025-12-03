@@ -67,7 +67,16 @@ public:
 
   }
 
+  void dodajPrzeglad(string data_przegladu) {
+    karta_przegladu.push_back(data_przegladu);
+  }
 
+  void wypiszWszystkiePrzeglady() {
+    for (int i=0; i<karta_przegladu.size(); i++) {
+      cout << "samochod marki " << marka << " mial przeglad : " << karta_przegladu[i] <<endl;
+    }
+
+  }
 
 
 
@@ -89,7 +98,37 @@ public:
     return rocznik;
   }
 
+  void setSpalanie_na100(double spalanie_na100_s) {
+    spalanie_na100 = spalanie_na100_s;
+  }
 
+  double getSpalanie_na100( ) {
+    return spalanie_na100;
+  }
+
+  void setPojemnosc_baku(int pojemnosc_baku_s) {
+    pojemnosc_baku = pojemnosc_baku_s;
+  }
+
+  int getPojemnosc_baku( ) {
+    return pojemnosc_baku;
+  }
+
+  void setLicznik(double licznik_s) {
+    licznik = licznik_s;
+  }
+
+  double getLicznik( ) {
+    return licznik;
+  }
+
+  void setStan_baku(double stan_baku_s) {
+    stan_baku = stan_baku_s;
+  }
+
+  double getStan_baku( ) {
+    return stan_baku;
+  }
 };
 
 
