@@ -137,39 +137,29 @@ public:
   }
 };
 
- int zwracanie(vector<int>& vect, int szukana_wartosc) {
-   for(int i = 0 ; i < vect.size() ; i++) {
-     if (vect[i] == szukana_wartosc) {
-       return i;
-     }
-   }
- }
+
+
 
 
 int main () {
+  vector<Samochod> lista_samochodow;
 
-  // Samochod s1("BMW", 1995, 7.3, 40);
-  // s1.dodajPrzeglad("1.12.2018");
-  // s1.tankowanie(15);
-  // s1.jazda(330);
-  //
-  // // s1.podajDaneSamochodu();
-  //
-  // s1.jazda(11);
-  // s1.tankowanie(30);
-  // s1.jazda(300);
-  //
-  // s1.dodajPrzeglad("3.12.2020");
-  //
-  // s1.wypiszWszystkiePrzeglady();
+  Samochod samochod_nr1("Mazda", 1990, 10.2, 45);
+  Samochod samochod_nr2("Toyota", 2019, 4.9, 35);
+  Samochod samochod_nr3("Dodge", 2014, 10,50);
 
-  vector<int> liczby = {232,4545,4522,831,25,72,257,2311};
+  lista_samochodow.push_back(samochod_nr1); //i 0
+  lista_samochodow.push_back(samochod_nr2); //i 1
+  lista_samochodow.push_back(samochod_nr3);// i
 
 
-   cout << zwracanie(liczby , 257);
+  // cout << lista_samochodow[1].getMarka() << endl;
+  // cout << lista_samochodow[2].getRocznik() << endl;
+  for (int i=0 ; i < lista_samochodow.size() ; i++) {
+    cout << lista_samochodow[i].getMarka() << endl;
+  }
+
 
 
   return 0;
 }
-
-// pOBIERZ  Z KLAWIATURY 3 NEIUJEMNE LOICBZY CAKOWEITE. ZNAJDŹ NAJWIĘKSZĄ Z NICH. WYŚWIETL SUMĘ PZOOSTAŁYCH LICZB TYLE RAZY ILE WYNOSI WARTOŚĆ NAJWIĘKSZEJ LICZBY
