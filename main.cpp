@@ -6,7 +6,6 @@ using namespace std;
 
 class Samochod {
 private:
-  string numer_rej;
   string marka;
   int rocznik;
   double spalanie_na100;
@@ -20,9 +19,8 @@ private:
 
 public:
 
-  Samochod(string numer_rej_k, string marka_k, int rocznik_k, double spalanie_na100_k, int pojemnosc_baku_k) {
-    cout << ">>>>>>>Utworzylem obiekt typu Samochod" << endl;
-    numer_rej = numer_rej_k;
+  Samochod(string marka_k, int rocznik_k, double spalanie_na100_k, int pojemnosc_baku_k) {
+    cout << "Utworzylem obiekt typu Samochod" << endl;
     marka = marka_k;
     rocznik = rocznik_k;
     spalanie_na100 = spalanie_na100_k;
@@ -31,7 +29,6 @@ public:
 
   void podajDaneSamochodu(){
     cout
-    << "numer_rej" << numer_rej << endl
     << "marka: " << marka << endl
     << "rocznik: " << rocznik << endl
     << "spalanie na 100: " << spalanie_na100 << endl
@@ -91,14 +88,6 @@ public:
 
 
   //-----------------------GET'ery i SEt'ery
-  void setNumer_rej(string numer_rej_s) {
-    numer_rej = numer_rej_s;
-  }
-
-  string getNumer_rej() {
-    return numer_rej;
-  }
-
   void setMarka(string marka_s) {
     marka = marka_s;
   }
@@ -155,122 +144,22 @@ public:
 int main () {
   vector<Samochod> lista_samochodow;
 
+  Samochod samochod_nr1("Mazda", 1990, 10.2, 45);
+  Samochod samochod_nr2("Toyota", 2019, 4.9, 35);
+  Samochod samochod_nr3("Dodge", 2014, 10,50);
 
-  // lista_samochodow.push_back(Samochod("Mazda", 1986, 8.6, 56));
-  // cout << lista_samochodow[0].getMarka() << endl;
-
-
-  while (true) {
-    cout << "======MENU======"<< endl;
-    cout << "Aby dodac samochod: wybierz (1)" << endl;
-    cout << "Aby wybrac samochod wybierz (2)" << endl;
-    cout << "Aby zakonczyc program wybierz (3)" << endl;
-
-    int numer_menu;
-    cin >> numer_menu;
+  lista_samochodow.push_back(samochod_nr1); //i 0
+  lista_samochodow.push_back(samochod_nr2); //i 1
+  lista_samochodow.push_back(samochod_nr3);// i
 
 
-    if (numer_menu == 1) {
-      cout << "Wybrano opcje 1 - dodawanie samochodu" << endl;
-      string numer_rej;
-      string marka;
-      int rocznik;
-      double spalanie;
-      int poj_baku;
-      cout << "Podaj nr rejestracyjny : " << endl;
-      cin >> numer_rej;
-      cout << "Podaj marke: " << endl;
-      cin >> marka;
-      cout << "Podaj rocznik: " << endl;
-      cin >> rocznik;
-      cout << "Podaj spalanie: " << endl;
-      cin >> spalanie;
-      cout << "Podaj pojemnosc baku:" << endl;
-      cin >> poj_baku;
-      lista_samochodow.push_back(Samochod(numer_rej, marka, rocznik, spalanie, poj_baku));
-
-      cout << "...wracam do menu glowngo" << endl;
-    }else if (numer_menu == 2) {
-      string numer_rej;
-      int indeks;
-      cout << "Wybrano opcje 2" << endl;
-      cout << "Podaj numer rejestracyjny pojazdu: " << endl;
-      cin >> numer_rej;
-      for (int i=0; i<lista_samochodow.size(); i++) {
-        if (lista_samochodow[i].getNumer_rej() == numer_rej) {
-          indeks = i;
-        }
-      }
-      cout << "Aby jechac wybierz (1)" << endl;
-      cout << "Aby tankowac wybierz (2)" << endl;
-      cout << "Aby podac dane samochodu wybierz (3)" << endl;
-
-      int numer_podmenu;
-      cin >> numer_podmenu;
-
-      if (numer_podmenu == 1) {
-        cout << "Wybano 1" << endl;
-      } else if (numer_podmenu == 2) {
-        cout << "Wybrano 2" << endl;
-      } else if (numer_podmenu == 3) {
-        cout << "Wybrano 3" << endl;
-      }
-
-
-      // if ( indeks >= 0 && indeks <= lista_samochodow.size()-
-
-      cout << "... wracam do menu glownego" << endl;
-    }else if (numer_menu == 3) {
-      cout << "wybrano opcje 3" << endl;
-      cout << "... zakonczam program" << endl;
-      break;
-    }
+  // cout << lista_samochodow[1].getMarka() << endl;
+  // cout << lista_samochodow[2].getRocznik() << endl;
+  for (int i=0 ; i < lista_samochodow.size() ; i++) {
+    cout << lista_samochodow[i].getMarka() << endl;
   }
 
 
 
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
